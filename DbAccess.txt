@@ -1,0 +1,5 @@
+username = devops
+password = devops123
+host     = postgres
+port     = 5432
+database = devops_training
