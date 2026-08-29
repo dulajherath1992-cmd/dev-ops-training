@@ -1,10 +1,9 @@
 backend:
   replicaCount: 2
-
   image:
-    repository: devops-training-backend
-    tag: local
-    pullPolicy: Never
+    repository: ghcr.io/dulajherath1992-cmd/dev-ops-training-backend
+    tag: latest
+    pullPolicy: IfNotPresent
 
   service:
     type: ClusterIP
@@ -19,9 +18,9 @@ frontend:
   replicaCount: 1
 
   image:
-    repository: devops-training-frontend
-    tag: local
-    pullPolicy: Never
+  repository: ghcr.io/dulajherath1992-cmd/dev-ops-training-frontend
+  tag: latest
+  pullPolicy: IfNotPresent
 
   service:
     type: ClusterIP
