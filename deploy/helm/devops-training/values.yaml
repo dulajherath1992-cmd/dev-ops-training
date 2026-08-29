@@ -2,7 +2,7 @@ backend:
   replicaCount: 2
   image:
     repository: ghcr.io/dulajherath1992-cmd/dev-ops-training-backend
-    tag: latest
+    tag: "77fa66cdceb6e8fab92e6f99455ccb8aa1fafe43"
     pullPolicy: IfNotPresent
 
   service:
@@ -19,7 +19,7 @@ frontend:
 
   image:
   repository: ghcr.io/dulajherath1992-cmd/dev-ops-training-frontend
-  tag: latest
+  tag: "77fa66cdceb6e8fab92e6f99455ccb8aa1fafe43"
   pullPolicy: IfNotPresent
 
   service:
