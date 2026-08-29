@@ -1,5 +1,6 @@
 backend:
   replicaCount: 2
+
   image:
     repository: ghcr.io/dulajherath1992-cmd/dev-ops-training-backend
     tag: latest
@@ -18,9 +19,9 @@ frontend:
   replicaCount: 1
 
   image:
-  repository: ghcr.io/dulajherath1992-cmd/dev-ops-training-frontend
-  tag: latest
-  pullPolicy: IfNotPresent
+    repository: ghcr.io/dulajherath1992-cmd/dev-ops-training-frontend
+    tag: latest
+    pullPolicy: IfNotPresent
 
   service:
     type: ClusterIP
