@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: postgres
+
+  template:
+    metadata:
+      labels:
+        app: postgres
+
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:17-alpine
+
+          ports:
+            - containerPort: 5432
+
+          env:
+            - name: POSTGRES_USER
+              value: devops
+
+            - name: POSTGRES_DB
+              value: devops_training
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-secret
+                  key: POSTGRES_PASSWORD
+
+          readinessProbe:
+            exec:
+              command:
+                - pg_isready
+                - -U
+                - devops
+                - -d
+                - devops_training
+            initialDelaySeconds: 5
+            periodSeconds: 5
+
+          volumeMounts:
+            - name: init-script
+              mountPath: /docker-entrypoint-initdb.d
+
+      volumes:
+        - name: init-script
+          configMap:
+            name: postgres-init
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+
+spec:
+  selector:
+    app: postgres
+
+  ports:
+    - port: 5432
+      targetPort: 5432

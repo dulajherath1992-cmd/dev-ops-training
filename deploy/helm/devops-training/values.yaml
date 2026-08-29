@@ -1,0 +1,53 @@
+backend:
+  replicaCount: 1
+
+  image:
+    repository: devops-training-backend
+    tag: local
+    pullPolicy: Never
+
+  service:
+    type: ClusterIP
+    port: 8080
+
+  containerPort: 8080
+
+  databaseUrl: "postgres://devops:devops123@postgres:5432/devops_training?sslmode=disable"
+
+
+frontend:
+  replicaCount: 1
+
+  image:
+    repository: devops-training-frontend
+    tag: local
+    pullPolicy: Never
+
+  service:
+    type: ClusterIP
+    port: 80
+
+  containerPort: 80
+
+
+postgres:
+  replicaCount: 1
+
+  image:
+    repository: postgres
+    tag: 17-alpine
+    pullPolicy: IfNotPresent
+
+  username: devops
+  password: devops123
+  database: devops_training
+
+  service:
+    type: ClusterIP
+    port: 5432
+
+  containerPort: 5432
+
+  persistence:
+    enabled: true
+    size: 1Gi
