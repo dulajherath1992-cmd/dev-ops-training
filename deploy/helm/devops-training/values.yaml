@@ -3,7 +3,7 @@ backend:
 
   image:
     repository: ghcr.io/dulajherath1992-cmd/dev-ops-training-backend
-    tag: "109b24860f40a77d669538da0fc14069015951e3"
+    tag: "bd2d50f83f3d928b94aa33a6ea7a4ff9f666e494"
     pullPolicy: IfNotPresent
 
   service:
@@ -20,7 +20,7 @@ frontend:
 
   image:
     repository: ghcr.io/dulajherath1992-cmd/dev-ops-training-frontend
-    tag: "109b24860f40a77d669538da0fc14069015951e3"
+    tag: "bd2d50f83f3d928b94aa33a6ea7a4ff9f666e494"
     pullPolicy: IfNotPresent
 
   service:
